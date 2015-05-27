@@ -1,28 +1,14 @@
 'use strict';
-
-/**
- * @ngdoc overview
- * @name learningDataApp
- * @description
- * # learningDataApp
- *
- * Main module of the application.
- */
 angular
-  .module('learningDataApp', [
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+
+  .module('learningDataApp', ['ngRoute', 'restangular'])
+
+  .config(function (RestangularProvider, $routeProvider) {
+    $routeProvider.
+      when('/', {templateUrl: 'views/main.html', controller: 'MainCtrl' }).
+      otherwise({ redirectTo: '/' });
+  })
+
+  .run(function (Restangular) {
+    Restangular.setBaseUrl('http://public.learning.local/api/v1/data');
   });
