@@ -1,6 +1,15 @@
-{{stats.users}}<br/>
+<div ng-show="loading" >
+loading data...
+please wait
+</div>
 
-{{stats.labels}}
-<br/>
-<br/>
-{{stats}}
+<div ng-show="loadingError" >
+Could not load data, please refresh.
+</div>
+
+  <!-- <chart type="lineChart"></chart> -->
+  <!-- <canvas id="line" class="chart chart-line" data="data"
+    labels="stats.labels" color="colors"  legend="false" click="onClick">
+  </canvas> -->
+
+<partial type="{{chartType}}"></partial>

@@ -1,22 +1,52 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('MainCtrl', function ($scope, dataAPIservice) {
+  .controller('MainCtrl', function ($scope, dataAPIservice, dataOptions, $filter, $rootScope) {
+
+    // $scope.interval = dataOptions.getInterval();
+    $scope.chartType = dataOptions.getChartType(true);
+    $scope.loading = true;
+    var storedSeries = [];
+
+    $rootScope.startup = function () {
 
 
-    // var test = dataAPIservice.getTest()
-    // console.log(test);
+      var dataType = dataOptions.getDataType();
+      storedSeries = [];
+      $scope.dataTypes = [];
+      $scope.chartSeries = [];
+      for (var i = 0; i < dataType.length ; i++) {
+        if (dataType[i].checked === true) {
+          $scope.dataTypes.push(dataType[i].field);
+          storedSeries.push(dataType[i].name);
+        }
+      }
+      var toDate = $filter('date')(dataOptions.getToDate(), 'dd/MM/yyyy');
+      var fromDate = $filter('date')(dataOptions.getFromDate(), 'dd/MM/yyyy');
 
+      var promise = dataAPIservice.getTotals($scope.dataTypes, 'all tenants', fromDate, toDate);
+      promise.then(function(result) {
+        $scope.setupData(result);
 
-    var userTotals = dataAPIservice.getTotals('users', 'all tenants', '26/05/2015', '30/05/2015');
-    console.log(userTotals);
+      }, function() {
+        $scope.loading = false;
+        $scope.loadingError = true;
+      });
+    };
 
-    $scope.stats = userTotals.$object;
+    $scope.setupData = function (result) {
+      $scope.chartType = dataOptions.getChartType(true);
+      $scope.chartData = [];
+      $scope.chartLabels = result.labels;
+      $scope.loading = false;
+      $scope.loadingError = false;
+      $scope.chartSeries = storedSeries;
+      for (var i = 0; i < $scope.dataTypes.length ; i++) {
+        $scope.chartData.push(result.stats[$scope.dataTypes[i]]);
+      }
+      // console.log($scope.chartLabels)
+      // console.log($scope.chartSeries)
+      // console.log($scope.chartData)
+    };
 
-    console.log($scope.stats);
-
-    // var test = dataAPIservice.getTest();
-    // console.log(test);
-
-    // $scope.completions = userTotals.completions;
-    // $scope.labels = userTotals.labels;
+    $rootScope.startup();
   });

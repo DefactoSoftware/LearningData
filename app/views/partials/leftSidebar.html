@@ -1,0 +1,57 @@
+<div ng-controller="leftSidebarController">
+  <div class="interval">
+      <div class="btn-group" >
+            <label class="btn btn-primary" ng-model="dataType[0].checked" btn-checkbox>{{dataType[0].name}}</label>
+            <label class="btn btn-primary" ng-model="dataType[1].checked" btn-checkbox>{{dataType[1].name}}</label>
+            <label class="btn btn-primary" ng-model="dataType[2].checked" btn-checkbox>{{dataType[2].name}}</label>
+            <label class="btn btn-primary" ng-model="dataType[3].checked" btn-checkbox>{{dataType[3].name}}</label>
+            <label class="btn btn-primary" ng-model="dataType[4].checked" btn-checkbox>{{dataType[4].name}}</label>
+      </div>
+  </div><br/>
+
+  <!-- <div class="interval">
+    <table>
+      <thead> select interval: </thead>
+      <tr ng-repeat="type in interval">
+        <td>
+          <input type="checkbox" ng-model="type.checked" ng-click="switch($index, interval)"> per {{type.name}} </input>
+        </td>
+      </tr>
+    </table>
+  </div> -->
+
+
+  <div class="interval">
+    <div class="btn-group" >
+      <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[0].checked" btn-checkbox>{{chartType[0].name}}</label>
+      <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[1].checked" btn-checkbox>{{chartType[1].name}}</label>
+    </div>
+  </div>
+
+  Select start date:
+  <div class="row">
+    <div class="col-md-10">
+      <p class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="fromDate" is-open="opened.top" min-date="minDate" max-date="maxDate"   ng-required="true" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event, 'top')"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+  </div>
+  select end date:
+  <div class="row">
+    <div class="col-md-10">
+      <p class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="toDate" is-open="opened.bottom" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event, 'bottom')"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+  </div>
+
+ <button class="btn" ng-disabled="readyToGo" ng-click="setOptions()">show me the data</button><br/>
+</div>
+
+

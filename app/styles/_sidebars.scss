@@ -1,0 +1,48 @@
+.sidebarContainer {
+  float:left;
+  border: solid 1px;
+  padding: 0.5em;
+
+  @media screen and (min-width: $large-screen) {
+    width: 22em;
+    height: 30em;
+  }
+  @media screen and (min-width: $huge-screen) {
+    width: 25em;
+    height: 30em;
+  }
+
+  .interval {
+    .btn-group {
+      .btn {
+        @media screen and (min-width: $large-screen) {
+          width: 8.4em;
+        }
+        @media screen and (min-width: $huge-screen) {
+          width: 9.6em;
+        }
+        border: none;
+        float: none;
+        margin-bottom: 5px;
+      }
+
+      .btn-primary {
+        @include button-variant($black, $normal-button-color, $btn-primary-border);
+      }
+
+      margin-bottom: none; // For input.btn
+      border: none;
+
+      .btn {
+        &:hover {
+          background-color: $hover-button-color;
+        }
+
+        &:active,
+        &.active {
+          background-color: $active-button-color;
+        }
+      }
+    }
+  }
+}

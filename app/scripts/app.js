@@ -1,7 +1,7 @@
 'use strict';
 angular
 
-  .module('learningDataApp', ['ngRoute', 'restangular'])
+  .module('learningDataApp', ['ngRoute', 'restangular', 'chart.js', 'ui.bootstrap'])
 
   .config(function (RestangularProvider, $routeProvider) {
     $routeProvider.

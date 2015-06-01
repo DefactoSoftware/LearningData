@@ -15,7 +15,4 @@ angular.module('learningDataApp')
         return testEndpoint.getList();
       }
     };
-
-
-
   });

@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -15,37 +16,32 @@
     <!-- endbuild -->
   </head>
   <body ng-app="learningDataApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<!--[if lt IE 7]>
+ <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+<!-- Add your site or application content here -->
+    <div class="appContainer">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
 
-            <a class="navbar-brand" href="#/">learningData</a>
-          </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        </div><!-- /.container-fluid -->
+      </nav>
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="sidebarContainer">
+        <leftsidebar></leftsidebar>
       </div>
+
+
+      <div class="centerContainer">
+          <div ng-view=""></div>
+      </div>
+
+      <div class="footer">
+      </div>
+
     </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-    </div>
-
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -54,13 +50,19 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/leftSidebar.js"></script>
         <script src="scripts/services/data_services.js"></script>
+        <script src="scripts/services/options_services.js"></script>
+        <script src="scripts/services/template_directives.js"></script>
         <!-- endbuild -->
 </body>
 </html>
