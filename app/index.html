@@ -5,7 +5,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <base href="/">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
@@ -16,32 +16,12 @@
     <!-- endbuild -->
   </head>
   <body ng-app="learningDataApp">
-<!--[if lt IE 7]>
- <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<!-- Add your site or application content here -->
     <div class="appContainer">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-
-        </div><!-- /.container-fluid -->
-      </nav>
-
-      <div class="sidebarContainer">
-        <leftsidebar></leftsidebar>
-      </div>
-
-
-      <div class="centerContainer">
-          <div ng-view=""></div>
-      </div>
-
-      <div class="footer">
-      </div>
-
+      <navbar></navbar>
+      <div ng-view=""></div>
+      <div class="footer"></div>
     </div>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -56,13 +36,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/leftSidebar.js"></script>
-        <script src="scripts/services/data_services.js"></script>
-        <script src="scripts/services/options_services.js"></script>
-        <script src="scripts/services/template_directives.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/leftSidebar.js"></script>
+    <script src="scripts/controllers/tenantInfo.js"></script>
+    <script src="scripts/services/data_services.js"></script>
+    <script src="scripts/services/options_services.js"></script>
+    <script src="scripts/services/template_directives.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

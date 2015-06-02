@@ -1,13 +1,16 @@
 <div ng-controller="leftSidebarController">
-  <div class="interval">
+  Select data to view:
+  <div class="row">
+    <div class="col-md-10">
       <div class="btn-group" >
-            <label class="btn btn-primary" ng-model="dataType[0].checked" btn-checkbox>{{dataType[0].name}}</label>
-            <label class="btn btn-primary" ng-model="dataType[1].checked" btn-checkbox>{{dataType[1].name}}</label>
-            <label class="btn btn-primary" ng-model="dataType[2].checked" btn-checkbox>{{dataType[2].name}}</label>
-            <label class="btn btn-primary" ng-model="dataType[3].checked" btn-checkbox>{{dataType[3].name}}</label>
-            <label class="btn btn-primary" ng-model="dataType[4].checked" btn-checkbox>{{dataType[4].name}}</label>
+        <label class="btn btn-primary" ng-model="dataType[0].checked" btn-checkbox>{{dataType[0].name}}</label>
+        <label class="btn btn-primary" ng-model="dataType[1].checked" btn-checkbox>{{dataType[1].name}}</label>
+        <label class="btn btn-primary" ng-model="dataType[2].checked" btn-checkbox>{{dataType[2].name}}</label>
+        <label class="btn btn-primary" ng-model="dataType[3].checked" btn-checkbox>{{dataType[3].name}}</label>
+        <label class="btn btn-primary" ng-model="dataType[4].checked" btn-checkbox>{{dataType[4].name}}</label>
       </div>
-  </div><br/>
+    </div>
+  </div>
 
   <!-- <div class="interval">
     <table>
@@ -20,11 +23,13 @@
     </table>
   </div> -->
 
-
-  <div class="interval">
-    <div class="btn-group" >
-      <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[0].checked" btn-checkbox>{{chartType[0].name}}</label>
-      <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[1].checked" btn-checkbox>{{chartType[1].name}}</label>
+  Select chart type:
+  <div class="row">
+    <div class="col-md-10">
+      <div class="btn-group" >
+        <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[0].checked" btn-checkbox>{{chartType[0].name}}</label>
+        <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[1].checked" btn-checkbox>{{chartType[1].name}}</label>
+      </div>
     </div>
   </div>
 
@@ -39,7 +44,7 @@
       </p>
     </div>
   </div>
-  select end date:
+  Select end date:
   <div class="row">
     <div class="col-md-10">
       <p class="input-group">

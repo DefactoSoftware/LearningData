@@ -24,4 +24,9 @@ angular.module('learningDataApp')
       templateUrl: 'views/partials/rightSidebar.html'
      };
 
+  }).directive('navbar', function () {
+    return {
+      restring: 'E',
+      templateUrl: 'views/partials/navbar.html'
+    }
   });

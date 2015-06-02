@@ -1,6 +1,6 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('MainCtrl', function ($scope, dataAPIservice, dataOptions, $filter, $rootScope) {
+  .controller('MainCtrl', function ($scope, dataAPIservice, dataOptions, $filter, $rootScope, $location) {
 
     // $scope.interval = dataOptions.getInterval();
     $scope.chartType = dataOptions.getChartType(true);
@@ -23,7 +23,7 @@ angular.module('learningDataApp')
       var toDate = $filter('date')(dataOptions.getToDate(), 'dd/MM/yyyy');
       var fromDate = $filter('date')(dataOptions.getFromDate(), 'dd/MM/yyyy');
 
-      var promise = dataAPIservice.getTotals($scope.dataTypes, 'all tenants', fromDate, toDate);
+      var promise = dataAPIservice.getTotals($scope.dataTypes, fromDate, toDate);
       promise.then(function(result) {
         $scope.setupData(result);
 
@@ -46,6 +46,10 @@ angular.module('learningDataApp')
       // console.log($scope.chartLabels)
       // console.log($scope.chartSeries)
       // console.log($scope.chartData)
+    };
+
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
     };
 
     $rootScope.startup();
