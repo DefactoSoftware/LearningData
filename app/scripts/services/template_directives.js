@@ -11,22 +11,26 @@ angular.module('learningDataApp')
       template: '<div ng-include="getContentUrl()"></div>'
     };
 
-  }).directive('leftsidebar', function () {
+  }).directive('datasidebar', function () {
     return {
       restrict: 'E',
-      templateUrl: 'views/partials/leftSidebar.html'
+      templateUrl: 'views/partials/dataSidebar.html'
      };
 
-  }).directive('rightsidebar', function () {
-
+  }).directive('usersidebar', function () {
     return {
       restrict: 'E',
-      templateUrl: 'views/partials/rightSidebar.html'
+      templateUrl: 'views/partials/userSidebar.html'
      };
 
   }).directive('navbar', function () {
     return {
       restring: 'E',
       templateUrl: 'views/partials/navbar.html'
+    }
+  }).directive('loading', function () {
+    return {
+      restring: 'E',
+      templateUrl: 'views/partials/loading.html'
     }
   });

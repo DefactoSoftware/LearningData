@@ -23,7 +23,7 @@ angular.module('learningDataApp')
       var toDate = $filter('date')(dataOptions.getToDate(), 'dd/MM/yyyy');
       var fromDate = $filter('date')(dataOptions.getFromDate(), 'dd/MM/yyyy');
 
-      var promise = dataAPIservice.getTotals($scope.dataTypes, fromDate, toDate);
+      var promise = dataAPIservice. getTenantStats($scope.dataTypes, "all tenants", fromDate, toDate);
       promise.then(function(result) {
         $scope.setupData(result);
 

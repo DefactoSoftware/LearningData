@@ -5,8 +5,9 @@ angular
 
   .config(function (RestangularProvider, $routeProvider, $locationProvider) {
     $routeProvider.
-      when('/', {templateUrl: 'views/main.html', controller: 'MainCtrl' }).
-      when('/tenantInfo', {templateUrl: 'views/tenantInfo.html', controller: 'tenantInfoController' }).
+      when('/', {templateUrl: 'views/pages/data.html', controller: 'MainCtrl' }).
+      when('/users', {templateUrl: 'views/pages/users.html', controller: 'usersController' }).
+      when('/tenantStats', {templateUrl: 'views/pages/tenantStats.html', controller: 'tenantStatsController' }).
       otherwise({ redirectTo: '/' });
 
       // use the HTML5 History API

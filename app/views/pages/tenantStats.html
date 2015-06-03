@@ -1,0 +1,25 @@
+<loading></loading>
+<div class="row">
+  <div class="col-md-12">
+    <div class="centerContainer">
+      <div ng-hide="loading" >
+        <table class="tenant-info">
+          <tr>
+            <th>Tenant</th>
+            <th>Users</th>
+            <th>Spaces</th>
+            <th>Chapters</th>
+            <th>Completions</th>
+          </tr>
+          <tr ng-repeat="info in tenantStats">
+            <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.tenant_name}}</td>
+            <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.users}}</td>
+            <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.spaces}}</td>
+            <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.chapters}}</td>
+            <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.completions}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

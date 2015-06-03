@@ -1,16 +1,3 @@
-<!-- <canvas id="line" class="chart chart-line" data="data"
-  labels="stats.labels" color="colors"  legend="false" click="onClick">
+<canvas id="line" class="chart chart-line" data="chartData"
+  labels="chartLabels" legend="true" series="chartSeries">
 </canvas>
-<div class="chart-legend">
-  Want to know more? click on a square:
-  <ul class="line-legend">
-    <li ng-repeat="labels in series">
-      <a href= "/tables/{{labels}}"><span ng-style="{ 'background' : colors[$index], 'cursor': 'pointer'}" class ="table-button" title="Show data in table"></span></a>
-      {{ labels }}
-    </li>
-  </ul>
-</div>
- -->
-  <canvas id="line" class="chart chart-line" data="chartData"
-    labels="chartLabels" legend="true" series="chartSeries">
-  </canvas>

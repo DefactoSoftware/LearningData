@@ -1,39 +1,7 @@
-.sidebarContainer {
-  float:left;
+.data-sidebar {
   border: solid 1px;
-  padding: 0.5em;
+}
 
-  .interval {
-    .btn-group {
-      .btn {
-        // @media screen and (min-width: $large-screen) {
-        //   width: 8.4em;
-        // }
-        // @media screen and (min-width: $huge-screen) {
-        //   width: 9.6em;
-        // }
-        border: none;
-        float: none;
-        margin-bottom: 5px;
-      }
-
-      .btn-primary {
-        @include button-variant($black, $normal-button-color, $btn-primary-border);
-      }
-
-      margin-bottom: none; // For input.btn
-      border: none;
-
-      .btn {
-        &:hover {
-          background-color: $hover-button-color;
-        }
-
-        &:active,
-        &.active {
-          background-color: $active-button-color;
-        }
-      }
-    }
-  }
+.user-sidebar {
+  border: solid 1px;
 }

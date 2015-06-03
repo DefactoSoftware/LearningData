@@ -1,11 +1,11 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('tenantInfoController', function ($scope, dataAPIservice, dataOptions, $filter) {
+  .controller('tenantStatsController', function ($scope, dataAPIservice, dataOptions, $filter) {
     $scope.loading = true;
     var toDate = $filter('date')(dataOptions.getToDate(), 'dd/MM/yyyy');
     var fromDate = $filter('date')(dataOptions.getFromDate(), 'dd/MM/yyyy');
 
-    var promise = dataAPIservice.getTenantInfo('all tenants', fromDate, toDate);
+    var promise = dataAPIservice.getDailyTenantStats();
       promise.then(function(result) {
         $scope.setupData(result);
       }, function() {
@@ -15,6 +15,6 @@ angular.module('learningDataApp')
 
     $scope.setupData = function (result) {
       $scope.loading = false;
-      $scope.tenantInfo = result.data;
+      $scope.tenantStats = result.all_data;
     };
   });

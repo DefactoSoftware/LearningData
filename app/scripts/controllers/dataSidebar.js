@@ -1,6 +1,6 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('leftSidebarController', function ($scope, dataOptions) {
+  .controller('dataSidebarController', function ($scope, dataOptions) {
 
     $scope.dataType = dataOptions.getDataType();
     $scope.interval = dataOptions.getInterval();
