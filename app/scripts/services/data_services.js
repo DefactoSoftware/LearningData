@@ -6,21 +6,19 @@ angular.module('learningDataApp')
     var dailyTenantStatsEndpoint = Restangular.all('dailyTenantStats');
     var tenantsEndpoint = Restangular.all('tenants');
     var userStatsEndpoint = Restangular.all('userStats');
-    var testEndpoint = Restangular.all('test');
 
     return {
       getTenantStats: function(type, tenant, fromDate, toDate){
-        var request = {'type' : type, 'tenant' : tenant, 'fromDate' : fromDate, 'toDate' : toDate};
-        return tenantStatsEndpoint.post(request);
+        return tenantStatsEndpoint.customGET('', {'type[]' : type, 'tenant' : tenant, 'fromDate' : fromDate, 'toDate' : toDate});
       },
       getDailyTenantStats: function(){
-        return  dailyTenantStatsEndpoint.customGET("");
+        return  dailyTenantStatsEndpoint.customGET('');
       },
        getTenants: function(){
-        return  tenantsEndpoint.customGET("");
+        return  tenantsEndpoint.customGET('');
       },
       getUserStats: function(){
-        return  userStatsEndpoint.customGET("");
+        return  userStatsEndpoint.customGET('');
       }
     };
   });

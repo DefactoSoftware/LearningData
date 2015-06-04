@@ -5,6 +5,9 @@ angular.module('learningDataApp')
     // $scope.interval = dataOptions.getInterval();
     $scope.chartType = dataOptions.getChartType(true);
     $scope.loading = true;
+    $scope.dataLoaded = false;
+    $scope.loadingError = false;
+
     var storedSeries = [];
 
     $rootScope.startup = function () {
@@ -23,7 +26,7 @@ angular.module('learningDataApp')
       var toDate = $filter('date')(dataOptions.getToDate(), 'dd/MM/yyyy');
       var fromDate = $filter('date')(dataOptions.getFromDate(), 'dd/MM/yyyy');
 
-      var promise = dataAPIservice. getTenantStats($scope.dataTypes, "all tenants", fromDate, toDate);
+      var promise = dataAPIservice. getTenantStats($scope.dataTypes, 'all tenants', fromDate, toDate);
       promise.then(function(result) {
         $scope.setupData(result);
 
@@ -34,18 +37,16 @@ angular.module('learningDataApp')
     };
 
     $scope.setupData = function (result) {
+      $scope.loading = false;
+      $scope.dataLoaded = true;
+      $scope.loadingError = false;
       $scope.chartType = dataOptions.getChartType(true);
       $scope.chartData = [];
       $scope.chartLabels = result.labels;
-      $scope.loading = false;
-      $scope.loadingError = false;
       $scope.chartSeries = storedSeries;
       for (var i = 0; i < $scope.dataTypes.length ; i++) {
         $scope.chartData.push(result.stats[$scope.dataTypes[i]]);
       }
-      // console.log($scope.chartLabels)
-      // console.log($scope.chartSeries)
-      // console.log($scope.chartData)
     };
 
     $scope.isActive = function (viewLocation) {

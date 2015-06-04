@@ -1,17 +1,17 @@
 'use strict';
 angular
-  .module('learningDataApp', ['ngRoute', 'restangular', 'chart.js', 'ui.bootstrap' ])
+  .module('learningDataApp', ['ngRoute', 'restangular', 'chart.js', 'ui.bootstrap', 'ui.checkbox'])
 
   .config(function (RestangularProvider, $routeProvider, $locationProvider) {
-    var authenticationToken = btoa("Mischa:Boldy")
+    var authenticationToken = btoa('username:password');
 
     $routeProvider.
       when('/', {templateUrl: 'views/pages/data.html', controller: 'MainCtrl' }).
       when('/users', {templateUrl: 'views/pages/users.html', controller: 'usersController' }).
-      when('/tenantStats', {templateUrl: 'views/pages/tenantStats.html', controller: 'tenantStatsController' }).
+      when('/dailyStats', {templateUrl: 'views/pages/dailyStats.html', controller: 'dailyStatsController' }).
       otherwise({ redirectTo: '/' });
 
-      RestangularProvider.setDefaultHeaders({Authorization: "Basic " + authenticationToken});
+      RestangularProvider.setDefaultHeaders({Authorization: 'Basic ' + authenticationToken});
 
       // use the HTML5 History API
       $locationProvider.html5Mode(true);

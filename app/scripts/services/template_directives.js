@@ -27,10 +27,10 @@ angular.module('learningDataApp')
     return {
       restring: 'E',
       templateUrl: 'views/partials/navbar.html'
-    }
+    };
   }).directive('loading', function () {
     return {
       restring: 'E',
       templateUrl: 'views/partials/loading.html'
-    }
+    };
   });

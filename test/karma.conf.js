@@ -28,6 +28,8 @@ module.exports = function(config) {
       'bower_components/Chart.js/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/angular-bootstrap-checkbox/angular-bootstrap-checkbox.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

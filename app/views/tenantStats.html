@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="centerContainer">
+      <div ng-show="loading" >
+        loading data...
+        please wait
+      </div>
+
+      <div ng-show="loadingError" >
+        Could not load data, please refresh.
+      </div>
+
+      <table class="tenant-info">
+        <tr>
+          <th>Tenant</th>
+          <th>Users</th>
+          <th>Spaces</th>
+          <th>Chapters</th>
+          <th>Completions</th>
+        </tr>
+        <tr ng-repeat="info in tenantInfo">
+          <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.tenant_name}}</td>
+          <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.users}}</td>
+          <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.spaces}}</td>
+          <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.chapters}}</td>
+          <td ng-class-even="'green-fade'" ng-class-odd="'blue-fade'">{{info.completions}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

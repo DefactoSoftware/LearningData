@@ -1,14 +1,12 @@
 <div ng-controller="dataSidebarController">
-  Select data to view:
   <div class="row">
     <div class="col-md-10">
-      <div class="btn-group" >
-        <label class="btn btn-primary" ng-model="dataType[0].checked" btn-checkbox>{{dataType[0].name}}</label>
-        <label class="btn btn-primary" ng-model="dataType[1].checked" btn-checkbox>{{dataType[1].name}}</label>
-        <label class="btn btn-primary" ng-model="dataType[2].checked" btn-checkbox>{{dataType[2].name}}</label>
-        <label class="btn btn-primary" ng-model="dataType[3].checked" btn-checkbox>{{dataType[3].name}}</label>
-        <label class="btn btn-primary" ng-model="dataType[4].checked" btn-checkbox>{{dataType[4].name}}</label>
-      </div>
+    <table>
+      <thead> Select data to view: </thead>
+        <tr ng-repeat="type in dataType">
+          <td><checkbox ng-model="type.checked" name="test"></checkbox> {{type.name}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 
@@ -23,13 +21,15 @@
     </table>
   </div> -->
 
-  Select chart type:
+
   <div class="row">
     <div class="col-md-10">
-      <div class="btn-group" >
-        <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[0].checked" btn-checkbox>{{chartType[0].name}}</label>
-        <label class="btn btn-primary" ng-click="switch($index, chartType)" ng-model="chartType[1].checked" btn-checkbox>{{chartType[1].name}}</label>
-      </div>
+    <table>
+      <thead> Select chart type: </thead>
+        <tr ng-repeat="type in chartType">
+          <td><checkbox ng-click="switch($index, chartType)" ng-model="type.checked" name="test"></checkbox> {{type.name}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 
