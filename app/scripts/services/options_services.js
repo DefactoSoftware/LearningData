@@ -46,7 +46,7 @@ angular.module('learningDataApp')
 
     var fromDate = new Date('05/01/2015');
 
-    var toDate = new Date('06/01/2015');
+    var toDate = new Date();
 
     return {
       getDataType: function() {
