@@ -1,9 +1,18 @@
 <loading></loading>
 <div class="row">
-  <div ng-show="dataLoaded" class="col-md-2 user-sidebar">
-    <usersidebar></usersidebar>
+  <div ng-show="dataLoaded" class="col-md-8 col-md-offset-2">
+    <tabset>
+      <tab id="test-tab" heading="most users" ng-click="switchChart('pieChart', true)"></tab>
+      <tab id="test-tab" heading="logins" ng-click="switchChart('loginsChart', false)"></tab>
+    </tabset>
   </div>
-  <div class="col-md-8">
-    <partial type="pieChart"></partial>
 </div>
-
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div ng-show="topUsers && dataLoaded" class="select-text">
+      Select the amount of tenants to show:
+      <input class="number-select" type="number" min="1" max="2" ng-model="tenantAmount" placeholder="tenantAmount" ng-Change="setupTenantData(tenantResult)"></input>
+    </div>
+    <br/><partial type="{{chartType}}"></partial>
+  </div>
+</div>

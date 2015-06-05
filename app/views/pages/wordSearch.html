@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 select-text">
+    Search LearningSpaces for:
+    <input type="text" ng-model="textToSearch"></input>
+    <button ng-click="searchWords()">search</button>
+  </div>
+</div>
+<div class="row">
+  <loading></loading>
+  <div ng-show="dataLoaded" class="col-md-12">
+     <table class="tenant-info">
+          <tr>
+            <th>Tenant</th>
+            <th>word used in content</th>
+            <th>word used in quizes</th>
+            <th>word used in assignments</th>
+            <th>word used in all</th>
+          </tr>
+          <tr class="totals">
+            <td>Totals</td>
+            <td>{{totals.richContentCount}}</td>
+            <td>{{totals.quizCount}}</td>
+            <td>{{totals.assignmentCount}}</td>
+            <td>{{totals.totalCount}}</td>
+          </tr>
+          <tr ng-repeat="data in wordData">
+            <td ng-class-even="'border-grey'" >{{data.tenant_name}}</td>
+            <td ng-class-even="'border-grey'" >{{data.richContentCount}}</td>
+            <td ng-class-even="'border-grey'" >{{data.quizCount}}</td>
+            <td ng-class-even="'border-grey'" >{{data.assignmentCount}}</td>
+            <td ng-class-even="'border-grey'" >{{data.totalCount}}</td>
+          </tr>
+        </table>
+  </div>
+</div>

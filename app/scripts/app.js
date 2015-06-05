@@ -8,7 +8,8 @@ angular
     $routeProvider.
       when('/', {templateUrl: 'views/pages/data.html', controller: 'MainCtrl' }).
       when('/users', {templateUrl: 'views/pages/users.html', controller: 'usersController' }).
-      when('/dailyStats', {templateUrl: 'views/pages/dailyStats.html', controller: 'dailyStatsController' }).
+      when('/daily', {templateUrl: 'views/pages/daily.html', controller: 'dailyController' }).
+      when('/wordSearch', {templateUrl: 'views/pages/wordSearch.html', controller: 'wordSearchController' }).
       otherwise({ redirectTo: '/' });
 
       RestangularProvider.setDefaultHeaders({Authorization: 'Basic ' + authenticationToken});

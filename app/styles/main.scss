@@ -19,8 +19,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   background-color: $green;
 }
 
-
-
 .blue {
   background-color: $blue;
 }
@@ -38,6 +36,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .error-message {
   width: 100%;
   height: 5em;
+  margin-top: 15em;
   padding: 2em;
   border: 1px solid $border-grey;
   border-radius: 4px;
@@ -49,4 +48,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 .error-message {
   background-color: $red;
+}
+
+.select-text {
+  text-align: center;
+}
+
+.number-select {
+  border: none;
+  width: 5em;
+  text-align: center;
 }

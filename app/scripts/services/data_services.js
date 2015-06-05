@@ -5,8 +5,8 @@ angular.module('learningDataApp')
     var tenantStatsEndpoint = Restangular.all('tenantStats');
     var dailyTenantStatsEndpoint = Restangular.all('dailyTenantStats');
     var tenantsEndpoint = Restangular.all('tenants');
-    var userStatsEndpoint = Restangular.all('userStats');
-
+    var loginStatsEndpoint = Restangular.all('loginStats');
+    var wordSearchEndpoint = Restangular.all('wordSearch');
     return {
       getTenantStats: function(type, tenant, fromDate, toDate){
         return tenantStatsEndpoint.customGET('', {'type[]' : type, 'tenant' : tenant, 'fromDate' : fromDate, 'toDate' : toDate});
@@ -17,8 +17,11 @@ angular.module('learningDataApp')
        getTenants: function(){
         return  tenantsEndpoint.customGET('');
       },
-      getUserStats: function(){
-        return  userStatsEndpoint.customGET('');
+      getLoginStats: function(){
+        return  loginStatsEndpoint.customGET('');
+      },
+      getSearchWords: function(text){
+        return  wordSearchEndpoint.customGET('', {'text' : text});
       }
     };
   });

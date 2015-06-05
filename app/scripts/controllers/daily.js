@@ -1,6 +1,6 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('dailyStatsController', function ($scope, dataAPIservice) {
+  .controller('dailyController', function ($scope, dataAPIservice) {
     $scope.loading = true;
     $scope.dataLoaded = false;
     $scope.loadingError = false;
@@ -24,6 +24,7 @@ angular.module('learningDataApp')
       $scope.totals.chapters = 0;
       $scope.totals.completions = 0;
       $scope.totals.active_users = 0;
+      $scope.totals.activity = 0;
       $scope.totals.tenant_name = 'Totals';
 
       for (var i = 0 ; i < $scope.tenantStats.length ; i++) {
@@ -32,6 +33,7 @@ angular.module('learningDataApp')
         $scope.totals.chapters += parseInt($scope.tenantStats[i].chapters);
         $scope.totals.completions += parseInt($scope.tenantStats[i].completions);
         $scope.totals.active_users += parseInt($scope.tenantStats[i].active_users);
+        $scope.totals.activity += parseInt($scope.tenantStats[i].activity);
       }
     };
   });
