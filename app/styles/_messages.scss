@@ -1,0 +1,21 @@
+.loading-message,
+.error-message {
+  border: 1px solid $border-grey;
+  border-radius: 4px;
+  height: 5em;
+
+  padding: 2em;
+  text-align: center;
+  width: 100%;
+
+  margin-top: 15em;
+
+
+}
+.loading-message {
+  background-color: $grey;
+}
+
+.error-message {
+  background-color: $red;
+}

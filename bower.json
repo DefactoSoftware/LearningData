@@ -9,11 +9,18 @@
     "Chart.js": "~1.0.2",
     "angular-chart.js": "~0.7.1",
     "angular-bootstrap": "~0.13.0",
-    "angular-bootstrap-checkbox": "~0.3.1"
+    "angular-pretty-checkable": "~0.1.7",
+    "chosen": "~1.4.2",
+    "angular-chosen-localytics": "~1.0.7"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "learningDataApp"
+  "moduleName": "learningDataApp",
+  "resolutions": {
+    "angular": "^1.3.0",
+    "angular-chart.js": "~0.7.1",
+    "angular-bootstrap": "~0.13.0"
+  }
 }

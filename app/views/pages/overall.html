@@ -1,10 +1,9 @@
 <loading></loading>
 <div class="row">
-  <div ng-show="dataLoaded" class="col-md-2 data-sidebar">
+  <div ng-show="dataLoaded" class="col-fixed-sidebar data-sidebar">
     <datasidebar></datasidebar>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-12 col-offset-data">
     <partial type="{{chartType}}"></partial>
   </div>
 </div>
-

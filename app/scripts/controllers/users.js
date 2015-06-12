@@ -13,6 +13,14 @@ angular.module('learningDataApp')
 
       }
     };
+    $scope.loginsLabels = [
+      '00:00 - 01:00', '01:00 - 02:00', '02:00 - 03:00', '03:00 - 04:00',
+      '04:00 - 05:00', '05:00 - 06:00', '06:00 - 07:00', '07:00 - 08:00',
+      '08:00 - 09:00', '09:00 - 10:00', '00:00 - 11:00', '11:00 - 12:00',
+      '12:00 - 13:00', '13:00 - 14:00', '04:00 - 15:00', '15:00 - 16:00',
+      '16:00 - 17:00', '17:00 - 18:00', '08:00 - 19:00', '19:00 - 20:00',
+      '20:00 - 21:00', '21:00 - 22:00', '02:00 - 23:00', '23:00 - 00:00'
+    ];
 
     dataAPIservice.getDailyTenantStats().then(function (tenantResult) {
       return dataAPIservice.getLoginStats().then(function (loginResult) {
@@ -34,6 +42,7 @@ angular.module('learningDataApp')
     };
 
     $scope.setupTenantData = function (result) {
+
       $scope.chartLabels = [];
       $scope.chartData = [];
       $scope.totalTenants = result.tenant_stats.length;
@@ -65,15 +74,13 @@ angular.module('learningDataApp')
       var loginsSum = _.sum(loginsTotal);
 
       for (var i = 0 ; i < loginsTotal.length ; i++) {
-        loginsPercentual.push(loginsTotal[i] / loginsSum * 100)
+        loginsPercentual.push(loginsTotal[i] / loginsSum * 100);
       }
       $scope.loginsData = [loginsPercentual];
-      $scope.loginsLabels = result.labels;
     };
 
     $scope.switchChart = function (type, userSelectShow) {
       $scope.chartType = type;
       $scope.topUsers = userSelectShow;
-    }
-
+    };
   });
