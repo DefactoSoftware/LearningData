@@ -1,0 +1,33 @@
+<div ng-controller="activeUserSidebarController">
+  <div class="row">
+    <div class="col-md-10 chart-interval active-users">
+      <label>Interval:</label>
+      <table>
+        <tr>
+          <td class="left-td"><pretty-radio  value="'day'" ng-model="interval.value" label="interval.day"></pretty-radio></td>
+          <td><pretty-radio  value="'month'" ng-model="interval.value" label="interval.month"></pretty-radio></td>
+          <td><pretty-radio value="'year'" ng-model="interval.value" label="interval.year"></pretty-radio></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <customdatepicker></customdatepicker>
+
+  <div class="row">
+    <div class="col-md-10 chart-tenants">
+      <label>Tenant:</label><br/>
+        <select chosen
+          ng-model="selectedTenant"
+          ng-options="tenant for tenant in tenants">
+        </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 chart-button">
+        <button class="btn btn-primary" ng-click="setOptions()">Show</button><br/>
+        <span class="subscript" ng-hide="correctDates"> Start date needs to be before end date.<br/></span>
+    </div>
+  </div>
+</div>

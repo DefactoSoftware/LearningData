@@ -1,13 +1,9 @@
 'use strict';
 angular.module('learningDataApp')
-  .service ('dataOptions', function() {
+  .service ('overallOptions', function() {
     var dataType = [{
       name : 'Users',
       field : 'users',
-      checked : true
-    }, {
-      name : 'Active users',
-      field : 'active_users',
       checked : true
     }, {
       name : 'Completions',
@@ -23,30 +19,22 @@ angular.module('learningDataApp')
       checked : true
     }];
 
-    var interval = [{
-      name : 'Day',
-      checked : true
-    }, {
-      name : 'Month',
-      checked : false
-    }, {
-      name :'Year',
-      checked : false
-    }];
+    var interval = {
+      value : 'day',
+      day: 'Day',
+      month: 'Month',
+      year: 'Year'
+    };
 
-    var chartType = [{
-      name : 'Line chart',
-      partial : 'lineChart',
-      checked : true
-    }, {
-      name : 'Bar chart',
-      partial : 'barChart',
-      checked : false
-    }];
+    var chartType = {
+      value : 'lineChart',
+      lineChart : 'Line chart',
+      barChart : 'Bar chart'
+    };
 
     var fromDate = new Date('05/01/2015');
-
     var toDate = new Date();
+    var selectedTenant = 'all tenants';
 
     return {
       getDataType: function() {
@@ -55,23 +43,17 @@ angular.module('learningDataApp')
       getInterval: function(){
         return interval;
       },
-      getChartType: function(checked){
-        if (checked === false){
+      getChartType: function(){
           return chartType;
-        }
-        else {
-          for (var i = 0; i < chartType.length ; i++ ){
-            if (chartType[i].checked === true){
-              return chartType[i].partial;
-            }
-          }
-        }
       },
       getFromDate: function(){
         return fromDate;
       },
       getToDate: function(){
         return toDate;
+      },
+      getSelectedTenant: function(){
+        return selectedTenant;
       },
       setDataType: function (input){
         dataType = input;
@@ -88,5 +70,48 @@ angular.module('learningDataApp')
       setToDate: function(input){
         toDate = input;
       },
+      setSelectedTenant: function(input) {
+        selectedTenant = input;
+      }
     };
+  }).service ('activeUserOptions', function() {
+
+    var interval = {
+      value : 'day',
+      day: 'Day',
+      month: 'Month',
+      year: 'Year'
+    };
+
+    var fromDate = new Date('05/01/2015');
+    var toDate = new Date();
+    var selectedTenant = 'all tenants';
+
+    return {
+      getInterval: function(){
+        return interval;
+      },
+      getFromDate: function(){
+        return fromDate;
+      },
+      getToDate: function(){
+        return toDate;
+      },
+      getSelectedTenant: function(){
+        return selectedTenant;
+      },
+      setInterval: function (input) {
+        interval = input;
+      },
+      setFromDate: function(input){
+        fromDate = input;
+      },
+      setToDate: function(input){
+        toDate = input;
+      },
+      setSelectedTenant: function(input) {
+        selectedTenant = input;
+      }
+    };
+
   });

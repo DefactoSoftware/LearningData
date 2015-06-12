@@ -1,18 +1,22 @@
-<loading></loading>
-<div class="row">
-  <div ng-show="dataLoaded" class="col-md-8 col-md-offset-2">
-    <tabset>
-      <tab id="test-tab" heading="most users" ng-click="switchChart('pieChart', true)"></tab>
-      <tab id="test-tab" heading="logins" ng-click="switchChart('loginsChart', false)"></tab>
-    </tabset>
-  </div>
+<div class="user-tabs">
+  <tabset>
+    <tab class="col-md-offset-2 users" heading="Most users" ng-click="switchChart('pieChart', true)"></tab>
+    <tab heading="Logins" ng-click="switchChart('loginsChart', false)"></tab>
+  </tabset>
 </div>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div ng-show="topUsers && dataLoaded" class="select-text">
-      Select the amount of tenants to show:
-      <input class="number-select" type="number" min="1" max="2" ng-model="tenantAmount" placeholder="tenantAmount" ng-Change="setupTenantData(tenantResult)"></input>
+<div class="content-container size-2">
+  <loading></loading>
+  <div class="row">
+    <div ng-show="dataLoaded" class="col-md-8 col-md-offset-2">
     </div>
-    <br/><partial type="{{chartType}}"></partial>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div ng-show="topUsers && dataLoaded" class="select-text">
+        Select the amount of tenants to show:
+        <input class="number-select" type="number" min="1" max="2" ng-model="tenantAmount" placeholder="tenantAmount" ng-Change="setupTenantData(tenantResult)"></input>
+      </div>
+      <br/><partial type="{{chartType}}"></partial>
+    </div>
   </div>
 </div>

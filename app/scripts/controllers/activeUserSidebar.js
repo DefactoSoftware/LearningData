@@ -1,19 +1,16 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('dataSidebarController', function ($scope, overallOptions, dataAPIservice) {
+  .controller('activeUserSidebarController', function ($scope, activeUserOptions, dataAPIservice) {
 
-    $scope.dataType = overallOptions.getDataType();
-    $scope.interval = overallOptions.getInterval();
-    $scope.chartType = overallOptions.getChartType();
-    $scope.fromDate = overallOptions.getFromDate();
-    $scope.toDate = overallOptions.getToDate();
-    $scope.selectedTenant = overallOptions.getSelectedTenant();
-    $scope.correctOptions = true;
+    $scope.interval = activeUserOptions.getInterval();
+    $scope.fromDate = activeUserOptions.getFromDate();
+    $scope.toDate = activeUserOptions.getToDate();
+    $scope.selectedTenant = activeUserOptions.getSelectedTenant();
     $scope.correctDates = true;
+
     $scope.minDate = $scope.fromDate;
     $scope.maxDate = new Date();
     $scope.opened = {};
-    $scope.dataRows = [ [$scope.dataType[0], $scope.dataType[1]], [$scope.dataType[2], $scope.dataType[3]] ];
     $scope.oneAtATime = true;
 
     $scope.addItem = function() {
@@ -35,22 +32,18 @@ angular.module('learningDataApp')
     });
 
     $scope.setOptions = function () {
-      overallOptions.setDataType($scope.dataType);
-      overallOptions.setInterval($scope.interval);
-      overallOptions.setChartType($scope.chartType);
-      overallOptions.setFromDate($scope.fromDate);
-      overallOptions.setToDate($scope.toDate);
-      overallOptions.setSelectedTenant($scope.selectedTenant);
+      activeUserOptions.setInterval($scope.interval);
+      activeUserOptions.setFromDate($scope.fromDate);
+      activeUserOptions.setToDate($scope.toDate);
+      activeUserOptions.setSelectedTenant($scope.selectedTenant);
       if ($scope.checkOptions() === true){
-        $scope.overallStartup();
+        $scope.activeUserStartup();
       }
     };
 
     $scope.checkOptions = function () {
-      var data = _.find($scope.dataType, {'checked' : true});
-      $scope.correctOptions = (data === undefined) ? false : true;
       $scope.correctDates = ($scope.toDate <= $scope.fromDate) ? false : true;
-      return ($scope.correctOptions && $scope.correctDates);
+      return ($scope.correctDates);
     };
 
     $scope.open = function($event, type) {
