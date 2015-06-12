@@ -1,7 +1,89 @@
 .data-sidebar {
-  // border: solid 1px;
-}
+  padding-left: 3px;
 
-.user-sidebar {
-  // border: solid 1px;
+  .chart-data,
+  .chart-type,
+  .chart-date-up,
+  .chart-date-down,
+  .chart-button,
+  .chart-tenants,
+  .chart-interval {
+    border: 1px solid $border-grey;
+    border-top: 0px;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background-color: $grey;
+  }
+
+  .chart-data,
+  .chart-type {
+    .right-td {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    table {
+      text-align: left;
+    }
+
+    td {
+      padding-top: 4px;
+
+      label {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .chart-data,
+  .active-users {
+    border-top: 1px solid $border-grey;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  .chart-data {
+    td {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  .chart-type {
+    td {
+      padding-right: 15px;
+      padding-left: 20px;
+    }
+  }
+  .chart-interval {
+    .left-td {
+      padding-left: 15px;
+    }
+
+    td {
+      width: 90px;
+      label {
+        font-weight: normal;
+      }
+    }
+  }
+  .chart-date-up {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .chart-date-down {
+    padding-top: 0px;
+  }
+  .chart-button {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    button {
+      width: 100%;
+    }
+  }
 }

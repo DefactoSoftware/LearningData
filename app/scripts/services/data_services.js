@@ -8,8 +8,8 @@ angular.module('learningDataApp')
     var loginStatsEndpoint = Restangular.all('loginStats');
     var wordSearchEndpoint = Restangular.all('wordSearch');
     return {
-      getTenantStats: function(type, tenant, fromDate, toDate){
-        return tenantStatsEndpoint.customGET('', {'type[]' : type, 'tenant' : tenant, 'fromDate' : fromDate, 'toDate' : toDate});
+      getTenantStats: function(type, tenant, interval, fromDate, toDate){
+        return tenantStatsEndpoint.customGET('', {'type[]' : type, 'tenant' : tenant, 'interval' : interval, 'fromDate' : fromDate, 'toDate' : toDate});
       },
       getDailyTenantStats: function(){
         return  dailyTenantStatsEndpoint.customGET('');

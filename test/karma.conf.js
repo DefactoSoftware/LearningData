@@ -28,8 +28,9 @@ module.exports = function(config) {
       'bower_components/Chart.js/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      'bower_components/bootstrap/dist/js/bootstrap.js',
-      'bower_components/angular-bootstrap-checkbox/angular-bootstrap-checkbox.js',
+      'bower_components/angular-pretty-checkable/dist/angular-pretty-checkable.min.js',
+      'bower_components/chosen/chosen.jquery.min.js',
+      'bower_components/angular-chosen-localytics/chosen.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
