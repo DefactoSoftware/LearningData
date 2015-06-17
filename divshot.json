@@ -1,0 +1,9 @@
+{
+  "name": "learningdata",
+  "root": "dist",
+  "clean_urls": true,
+  "error_page": "y",
+  "routes": {
+    "**": "index.html"
+  }
+}

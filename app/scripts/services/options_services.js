@@ -32,7 +32,9 @@ angular.module('learningDataApp')
       barChart : 'Bar chart'
     };
 
-    var fromDate = new Date('05/01/2015');
+    var minDate = new Date('02/20/2015');
+    var fromDate = new Date();
+    fromDate.setMonth(fromDate.getMonth() - 1);
     var toDate = new Date();
     var selectedTenant = 'all tenants';
 
@@ -44,7 +46,10 @@ angular.module('learningDataApp')
         return interval;
       },
       getChartType: function(){
-          return chartType;
+        return chartType;
+      },
+      getMinDate: function(){
+        return minDate;
       },
       getFromDate: function(){
         return fromDate;
@@ -83,13 +88,18 @@ angular.module('learningDataApp')
       year: 'Year'
     };
 
-    var fromDate = new Date('05/01/2015');
+    var minDate = new Date('02/20/2015');
+    var fromDate = new Date();
+    fromDate.setMonth(fromDate.getMonth() - 1);
     var toDate = new Date();
     var selectedTenant = 'all tenants';
 
     return {
       getInterval: function(){
         return interval;
+      },
+      getMinDate: function(){
+        return minDate;
       },
       getFromDate: function(){
         return fromDate;

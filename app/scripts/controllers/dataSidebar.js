@@ -10,7 +10,7 @@ angular.module('learningDataApp')
     $scope.selectedTenant = overallOptions.getSelectedTenant();
     $scope.correctOptions = true;
     $scope.correctDates = true;
-    $scope.minDate = $scope.fromDate;
+    $scope.minDate =  overallOptions.getMinDate();
     $scope.maxDate = new Date();
     $scope.opened = {};
     $scope.dataRows = [ [$scope.dataType[0], $scope.dataType[1]], [$scope.dataType[2], $scope.dataType[3]] ];

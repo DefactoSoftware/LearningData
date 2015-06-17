@@ -2,11 +2,11 @@
 angular.module('learningDataApp')
   .factory ('dataAPIservice', function(Restangular){
 
-    var tenantStatsEndpoint = Restangular.all('tenantStats');
-    var dailyTenantStatsEndpoint = Restangular.all('dailyTenantStats');
+    var tenantStatsEndpoint = Restangular.all('tenant_stats');
+    var dailyTenantStatsEndpoint = Restangular.all('daily_tenant_stats');
     var tenantsEndpoint = Restangular.all('tenants');
-    var loginStatsEndpoint = Restangular.all('loginStats');
-    var wordSearchEndpoint = Restangular.all('wordSearch');
+    var loginStatsEndpoint = Restangular.all('login_stats');
+    var wordSearchEndpoint = Restangular.all('word_search');
     return {
       getTenantStats: function(type, tenant, interval, fromDate, toDate){
         return tenantStatsEndpoint.customGET('', {'type[]' : type, 'tenant' : tenant, 'interval' : interval, 'fromDate' : fromDate, 'toDate' : toDate});

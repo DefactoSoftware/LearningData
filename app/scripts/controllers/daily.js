@@ -1,10 +1,13 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('dailyController', function ($scope, dataAPIservice) {
+  .controller('dailyController', function ($scope, dataAPIservice, $filter) {
     $scope.loading = true;
     $scope.dataLoaded = false;
     $scope.loadingError = false;
-
+    $scope.sortSettings = {
+      criteria : 'none',
+      descending : false
+    };
     var promise = dataAPIservice.getDailyTenantStats();
       promise.then(function(result) {
         $scope.setupData(result);
@@ -19,6 +22,8 @@ angular.module('learningDataApp')
       $scope.dataLoaded = true;
       $scope.loadingError = false;
       $scope.tenantStats = result.tenant_stats;
+      $scope.setSortSettings('tenant_name');
+
       $scope.totals = {};
       $scope.totals.users = 0;
       $scope.totals.spaces = 0;
@@ -35,6 +40,28 @@ angular.module('learningDataApp')
         $scope.totals.completions += parseInt($scope.tenantStats[i].completions);
         $scope.totals.active_users += parseInt($scope.tenantStats[i].active_users);
         $scope.totals.activity += parseInt($scope.tenantStats[i].activity);
+      }
+    };
+
+    $scope.$watch('sortSettings', function(newVal){
+      $scope.tenantStats =  $filter('orderBy')( $scope.tenantStats, function(item) {
+              if (newVal.criteria === 'tenant_name') {
+                return item[newVal.criteria];
+              } else {
+                return parseInt(item[newVal.criteria]);
+              } }, newVal.descending );
+    },true);
+
+    $scope.setSortSettings = function (criteria) {
+      if (criteria === $scope.sortSettings.criteria ) {
+        $scope.sortSettings.descending = !$scope.sortSettings.descending;
+      } else {
+        $scope.sortSettings.criteria = criteria;
+        if (criteria === 'tenant_name' ) {
+          $scope.sortSettings.descending = false;
+        }else {
+          $scope.sortSettings.descending = true;
+        }
       }
     };
   });

@@ -8,6 +8,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "messages.scss";
 @import "text.scss";
 
+body {
+  font-size: 15px;
+}
+
 .app-container {
   margin: 1em;
 }
@@ -17,7 +21,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 .chosen-container {
-  width: 246px !important;
+  width: 263px !important;
 }
 
 .col-fixed-sidebar{
@@ -37,6 +41,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   border: 1px solid $border-grey;
   border-radius: 4px;
   min-height: 515px;
+  height: calc(100vh - 142px);
 }
 
 .data {
@@ -44,22 +49,20 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 .number-select {
-  border: none;
-  width: 5em;
+   border: 3px solid transparent;
+  font-size: 120px;
+  margin-top: 220px;
+  margin-left: -50px;
+  width: 100%;
   text-align: center;
+  background-color: $grey;
+  border-radius: 30px;
 }
 
-.size-1 {
-  height: calc(100vh - 100px);
-}
-
-.size-2 {
-  height: calc(100vh - 142px);
-}
-
-.size-3 {
-  height: calc(100vh - 115px);
-}
+textarea:focus, input:focus{
+    outline: 0;
+    border: 3px solid $border-grey;
+  }
 
 .tenant-select {
   width: 100%;
@@ -70,4 +73,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   .nav-tabs {
     border-bottom: 0;
   }
+}
+
+.search-box {
+  margin-bottom: 1em;
 }

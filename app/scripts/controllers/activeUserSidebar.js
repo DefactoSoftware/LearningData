@@ -8,7 +8,7 @@ angular.module('learningDataApp')
     $scope.selectedTenant = activeUserOptions.getSelectedTenant();
     $scope.correctDates = true;
 
-    $scope.minDate = $scope.fromDate;
+    $scope.minDate = activeUserOptions.getMinDate();
     $scope.maxDate = new Date();
     $scope.opened = {};
     $scope.oneAtATime = true;

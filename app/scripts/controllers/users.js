@@ -5,7 +5,7 @@ angular.module('learningDataApp')
     $scope.dataLoaded = false;
     $scope.loadingError = false;
     $scope.topUsers = true;
-    $scope.tenantAmount = 1;
+    $scope.tenantAmount = 10;
     $scope.chartType = 'pieChart';
     $scope.loginsOptions = {
       scaleLabel: function (valuePayload) {
@@ -42,13 +42,12 @@ angular.module('learningDataApp')
     };
 
     $scope.setupTenantData = function (result) {
-
       $scope.chartLabels = [];
       $scope.chartData = [];
       $scope.totalTenants = result.tenant_stats.length;
       var tenants = $scope.tenantAmount;
       var others = $scope.totalTenants - $scope.tenantAmount;
-      var users = $filter('orderBy')( result.tenant_stats, 'users', true );
+      var users = $filter('orderBy')( result.tenant_stats, function(item) { return parseInt(item.users); } , true );
       var highestValues = _.take( users, tenants );
       var restValues = _.takeRight( users, others );
       var restSum = 0;
@@ -68,7 +67,6 @@ angular.module('learningDataApp')
     };
 
     $scope.setupLoginData = function (result) {
-      console.log(result)
       var loginsTotal = result.logins;
       var loginsPercentual = [];
       var loginsSum = _.sum(loginsTotal);

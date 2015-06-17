@@ -23,6 +23,7 @@ angular.module('learningDataApp')
         $scope.dataLoaded = false;
         $scope.loading = false;
         $scope.loadingError = true;
+        $scope.chartType = 'empty';
       });
     };
 

@@ -35,11 +35,11 @@ angular.module('learningDataApp')
         $scope.dataLoaded = false;
         $scope.loading = false;
         $scope.loadingError = true;
+        $scope.chartType = 'empty';
       });
     };
 
     $scope.setupData = function (result) {
-
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
@@ -48,11 +48,6 @@ angular.module('learningDataApp')
       $scope.chartLabels = result.labels;
       $scope.chartSeries = storedSeries;
       for (var i = 0; i < $scope.dataTypes.length ; i++) {
-        // var cumulutiveData = []
-        // for (var j = 0; j < result.stats[$scope.dataTypes[i]].length ; j++) {
-        //   cumulutiveData.push(result.stats[$scope.dataTypes[i]][j-1] - result.stats[$scope.dataTypes[i]][j])
-        // }
-        // console.log(cumulutiveData)
         $scope.chartData.push(result.stats[$scope.dataTypes[i]]);
       }
     };

@@ -3,7 +3,7 @@ angular
   .module('learningDataApp', ['ngRoute', 'restangular', 'chart.js', 'ui.bootstrap', 'pretty-checkable', 'localytics.directives'])
 
   .config(function (RestangularProvider, $routeProvider, $locationProvider) {
-    var authenticationToken = btoa('username:password');
+    var authenticationToken = btoa('DefactoLSAPI:Nwb0,:mDu6lJ0S|rAZbb:`*h^SI469|');
 
     $routeProvider.
       when('/', {templateUrl: 'views/pages/overall.html', controller: 'MainCtrl' }).
@@ -20,5 +20,5 @@ angular
   })
 
   .run(function (Restangular) {
-    Restangular.setBaseUrl('http://public.learning.local/api/v1/data');
+    Restangular.setBaseUrl('https://lsdashboardapi.herokuapp.com/api/v1/data');
   });
