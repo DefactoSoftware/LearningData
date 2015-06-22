@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2 col-md-offset-5">
+  <div class="col-md-4 col-md-offset-4">
     <div class="input-group search-box">
       <input type="text" class="form-control" ng-model="textToSearch" placeholder="Search for...">
       <span class="input-group-btn">
@@ -11,28 +11,30 @@
 <loading></loading>
 <div class="row">
   <div ng-show="dataLoaded" class="col-md-12">
-    <table class="tenant-info">
-      <tr>
-        <th class="clickable" ng-click="setSortSettings('tenant_name')">Tenant</th>
-        <th class="clickable" ng-click="setSortSettings('richContentCount')">word used in content</th>
-        <th class="clickable" ng-click="setSortSettings('quizCount')">word used in quizes</th>
-        <th class="clickable" ng-click="setSortSettings('assignmentCount')">word used in assignments</th>
-        <th class="clickable" ng-click="setSortSettings('totalCount')">word used in all</th>
-      </tr>
-      <tr class="totals">
-        <td>Totals</td>
-        <td>{{totals.richContentCount}}</td>
-        <td>{{totals.quizCount}}</td>
-        <td>{{totals.assignmentCount}}</td>
-        <td>{{totals.totalCount}}</td>
-      </tr>
-      <tr ng-repeat="data in wordData">
-        <td ng-class-even="'border-grey'">{{data.tenant_name}}</td>
-        <td ng-class-even="'border-grey'">{{data.richContentCount}}</td>
-        <td ng-class-even="'border-grey'">{{data.quizCount}}</td>
-        <td ng-class-even="'border-grey'">{{data.assignmentCount}}</td>
-        <td ng-class-even="'border-grey'">{{data.totalCount}}</td>
-      </tr>
-    </table>
+    <div class="border">
+      <table class="tenant-info">
+        <tr>
+          <th class="clickable" ng-click="setSortSettings('tenant_name')">Tenant</th>
+          <th class="clickable" ng-click="setSortSettings('richContentCount')">used in content</th>
+          <th class="clickable" ng-click="setSortSettings('quizCount')">used in quizes</th>
+          <th class="clickable" ng-click="setSortSettings('assignmentCount')">used in assignments</th>
+          <th class="clickable" ng-click="setSortSettings('totalCount')">used in all</th>
+        </tr>
+        <tr class="totals">
+          <td>Totals</td>
+          <td>{{totals.richContentCount}}</td>
+          <td>{{totals.quizCount}}</td>
+          <td>{{totals.assignmentCount}}</td>
+          <td>{{totals.totalCount}}</td>
+        </tr>
+        <tr ng-repeat="data in wordData">
+          <td ng-class-even="'border-grey'">{{data.tenant_name}}</td>
+          <td ng-class-even="'border-grey'">{{data.richContentCount}}</td>
+          <td ng-class-even="'border-grey'">{{data.quizCount}}</td>
+          <td ng-class-even="'border-grey'">{{data.assignmentCount}}</td>
+          <td ng-class-even="'border-grey'">{{data.totalCount}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

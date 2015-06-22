@@ -3,10 +3,24 @@
   border: 1px solid $border-grey;
   border-radius: 4px;
   height: 5em;
-  padding: 2em;
+  width: 34em;
   text-align: center;
-  width: 100%;
-  margin-top: 20em;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  p {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  img {
+    margin-left: 2em;
+  }
 }
 
 .loading-message {

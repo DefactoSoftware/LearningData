@@ -23,11 +23,11 @@ angular.module('learningDataApp')
       isFirstDisabled: false
     };
 
-    var promise = dataAPIservice. getTenants();
-    promise.then(function(result) {
+    dataAPIservice.getTenants().then(function(result) {
       $scope.tenants = result.tenants;
       $scope.tenants.splice(0,0, 'all tenants');
     }, function() {
+      //add stuff?? do something rewrite??
       console.log('could not load tenants');
     });
 

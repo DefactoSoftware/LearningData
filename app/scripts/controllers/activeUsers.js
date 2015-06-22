@@ -9,15 +9,20 @@ angular.module('learningDataApp')
     $scope.chartSeries = ['active users'];
     $scope.chartType = 'lineChart';
 
-
+    // rewrite??
     $rootScope.activeUserStartup = function () {
       var selectedTenant = activeUserOptions.getSelectedTenant();
       var interval = activeUserOptions.getInterval().value;
       var toDate = $filter('date')(activeUserOptions.getToDate(), 'dd/MM/yyyy');
       var fromDate = $filter('date')(activeUserOptions.getFromDate(), 'dd/MM/yyyy');
 
-      var promise = dataAPIservice. getTenantStats('active_users', selectedTenant, interval, fromDate, toDate);
-      promise.then(function(result) {
+      dataAPIservice. getTenantStats(
+        'active_users',
+        selectedTenant,
+        interval,
+        fromDate,
+        toDate
+      ).then(function(result) {
         $scope.setupData(result);
       }, function() {
         $scope.dataLoaded = false;

@@ -13,6 +13,7 @@ angular.module('learningDataApp')
     $scope.minDate =  overallOptions.getMinDate();
     $scope.maxDate = new Date();
     $scope.opened = {};
+    //rewrite???
     $scope.dataRows = [ [$scope.dataType[0], $scope.dataType[1]], [$scope.dataType[2], $scope.dataType[3]] ];
     $scope.oneAtATime = true;
 
@@ -26,8 +27,7 @@ angular.module('learningDataApp')
       isFirstDisabled: false
     };
 
-    var promise = dataAPIservice. getTenants();
-    promise.then(function(result) {
+    dataAPIservice.getTenants().then(function(result) {
       $scope.tenants = result.tenants;
       $scope.tenants.splice(0,0, 'all tenants');
     }, function() {
@@ -42,21 +42,21 @@ angular.module('learningDataApp')
       overallOptions.setToDate($scope.toDate);
       overallOptions.setSelectedTenant($scope.selectedTenant);
       if ($scope.checkOptions() === true){
+        //rewrite?? broadcast
         $scope.overallStartup();
       }
     };
 
     $scope.checkOptions = function () {
       var data = _.find($scope.dataType, {'checked' : true});
-      $scope.correctOptions = (data === undefined) ? false : true;
-      $scope.correctDates = ($scope.toDate <= $scope.fromDate) ? false : true;
+      $scope.correctOptions = !!data;
+      $scope.correctDates = ($scope.toDate >= $scope.fromDate);
       return ($scope.correctOptions && $scope.correctDates);
     };
 
     $scope.open = function($event, type) {
       $event.preventDefault();
       $event.stopPropagation();
-
       $scope.opened[type] = true;
     };
 

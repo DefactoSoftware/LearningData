@@ -7,9 +7,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "tables.scss";
 @import "messages.scss";
 @import "text.scss";
+@import "login.scss";
 
 body {
   font-size: 15px;
+  font-family: "Open Sans";
 }
 
 .app-container {
@@ -77,4 +79,8 @@ textarea:focus, input:focus{
 
 .search-box {
   margin-bottom: 1em;
+}
+
+.login-page {
+   background: url("../images/background.jpg") no-repeat center center fixed;
 }

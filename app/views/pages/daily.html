@@ -3,35 +3,37 @@
   <div class="col-md-12">
     <div class="centerContainer">
       <div ng-show="dataLoaded" >
-        <table class="tenant-info">
-          <tr>
-            <th class="clickable" ng-click="setSortSettings('tenant_name')">Tenant</th>
-            <th class="clickable" ng-click="setSortSettings('users')">Users</th>
-            <th class="clickable" ng-click="setSortSettings('spaces')">Spaces</th>
-            <th class="clickable" ng-click="setSortSettings('chapters')">Chapters</th>
-            <th class="clickable" ng-click="setSortSettings('completions')">Completions</th>
-            <th class="clickable" ng-click="setSortSettings('active_users')">Active users</th>
-            <th class="clickable" ng-click="setSortSettings('activity')">Active users past 30 days</th>
-          </tr>
-          <tr class="totals">
-            <td>{{totals.tenant_name}}</td>
-            <td>{{totals.users}}</td>
-            <td>{{totals.spaces}}</td>
-            <td>{{totals.chapters}}</td>
-            <td>{{totals.completions}}</td>
-            <td>{{totals.active_users}}</td>
-            <td>{{totals.activity}}</td>
-          </tr>
-          <tr ng-repeat="stats in tenantStats">
-            <td ng-class-even="'border-grey'" >{{stats.tenant_name}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.users}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.spaces}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.chapters}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.completions}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.active_users}}</td>
-            <td ng-class-even="'border-grey'" >{{stats.activity}}</td>
-          </tr>
-        </table>
+        <div class="border">
+          <table class="tenant-info">
+            <tr>
+              <th class="clickable upper-left-corner" ng-click="setSortSettings('tenant_name')">Tenant</th>
+              <th class="clickable" ng-click="setSortSettings('users')">Users</th>
+              <th class="clickable" ng-click="setSortSettings('spaces')">Spaces</th>
+              <th class="clickable" ng-click="setSortSettings('chapters')">Chapters</th>
+              <th class="clickable" ng-click="setSortSettings('completions')">Completions</th>
+              <th class="clickable" ng-click="setSortSettings('active_users')">Active users</th>
+              <th class="clickable upper-right-corner" ng-click="setSortSettings('activity')">Active users past 30 days</th>
+            </tr>
+            <tr class="totals">
+              <td>{{totals.tenant_name}}</td>
+              <td>{{totals.users}}</td>
+              <td>{{totals.spaces}}</td>
+              <td>{{totals.chapters}}</td>
+              <td>{{totals.completions}}</td>
+              <td>{{totals.active_users}}</td>
+              <td>{{totals.activity}}</td>
+            </tr>
+            <tr ng-repeat="stats in tenantStats">
+              <td ng-class-even="'border-grey'" >{{stats.tenant_name}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.users}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.spaces}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.chapters}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.completions}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.active_users}}</td>
+              <td ng-class-even="'border-grey'" >{{stats.activity}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>

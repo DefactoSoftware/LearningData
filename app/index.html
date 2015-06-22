@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="learningDataApp">
+
+  <body ng-app="learningDataApp" ng-class="bodyClass">
     <div class="app-container">
       <navbar></navbar>
       <div ng-view=""></div>
@@ -38,21 +39,27 @@
     <script src="bower_components/angular-pretty-checkable/dist/angular-pretty-checkable.min.js"></script>
     <script src="bower_components/chosen/chosen.jquery.min.js"></script>
     <script src="bower_components/angular-chosen-localytics/chosen.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/overall.js"></script>
     <script src="scripts/controllers/dataSidebar.js"></script>
     <script src="scripts/controllers/activeUserSidebar.js"></script>
     <script src="scripts/controllers/users.js"></script>
+    <script src="scripts/controllers/spaces.js"></script>
     <script src="scripts/controllers/daily.js"></script>
     <script src="scripts/controllers/wordSearch.js"></script>
     <script src="scripts/controllers/activeUsers.js"></script>
-    <script src="scripts/services/data_services.js"></script>
-    <script src="scripts/services/options_services.js"></script>
-    <script src="scripts/services/template_directives.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
+    <script src="scripts/services/data_service.js"></script>
+    <script src="scripts/services/overall_service.js"></script>
+    <script src="scripts/services/activeUser_service.js"></script>
+    <script src="scripts/directives/template_directives.js"></script>
+    <script src="scripts/directives/loading_directives.js"></script>
     <!-- endbuild -->
 </body>
 </html>

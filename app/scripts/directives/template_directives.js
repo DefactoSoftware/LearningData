@@ -26,7 +26,6 @@ angular.module('learningDataApp')
       restrict: 'E',
       templateUrl: 'views/partials/bars/userSidebar.html'
      };
-
   }).directive('navbar', function () {
     return {
       restring: 'E',

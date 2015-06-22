@@ -24,14 +24,15 @@ angular.module('learningDataApp')
       $scope.tenantStats = result.tenant_stats;
       $scope.setSortSettings('tenant_name');
 
-      $scope.totals = {};
-      $scope.totals.users = 0;
-      $scope.totals.spaces = 0;
-      $scope.totals.chapters = 0;
-      $scope.totals.completions = 0;
-      $scope.totals.active_users = 0;
-      $scope.totals.activity = 0;
-      $scope.totals.tenant_name = 'Totals';
+      $scope.totals = {
+        users: 0,
+        spaces: 0,
+        chapters: 0,
+        completions: 0,
+        active_users: 0,
+        activity: 0,
+        tenant_name: 'Totals'
+      };
 
       for (var i = 0 ; i < $scope.tenantStats.length ; i++) {
         $scope.totals.users += parseInt($scope.tenantStats[i].users);
@@ -57,11 +58,7 @@ angular.module('learningDataApp')
         $scope.sortSettings.descending = !$scope.sortSettings.descending;
       } else {
         $scope.sortSettings.criteria = criteria;
-        if (criteria === 'tenant_name' ) {
-          $scope.sortSettings.descending = false;
-        }else {
-          $scope.sortSettings.descending = true;
-        }
+        $scope.sortSettings.descending = (criteria === 'tenant_name');
       }
     };
   });

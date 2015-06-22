@@ -10,18 +10,18 @@ angular.module('learningDataApp')
     };
 
     $scope.searchWords = function () {
-      if (typeof $scope.textToSearch !== 'undefined') {
+      if ($scope.textToSearch && $scope.textToSearch.trim()) {
         $scope.loading = true;
         $scope.dataLoaded = false;
         $scope.loadingError = false;
-        var promise = dataAPIservice.getSearchWords($scope.textToSearch);
-        promise.then(function(result) {
-          $scope.setupData(result);
-        }, function() {
-          $scope.dataLoaded = false;
-          $scope.loading = false;
-          $scope.loadingError = true;
-        });
+        dataAPIservice.getSearchWords($scope.textToSearch.trim())
+          .then(function(result) {
+            $scope.setupData(result);
+          }, function() {
+            $scope.dataLoaded = false;
+            $scope.loading = false;
+            $scope.loadingError = true;
+          });
       }
     };
 
@@ -48,11 +48,7 @@ angular.module('learningDataApp')
         $scope.sortSettings.descending = !$scope.sortSettings.descending;
       } else {
         $scope.sortSettings.criteria = criteria;
-        if (criteria === 'tenant_name' ) {
-          $scope.sortSettings.descending = false;
-        }else {
-          $scope.sortSettings.descending = true;
-        }
+        $scope.sortSettings.descending = (criteria === 'tenant_name');
       }
     };
   });

@@ -31,6 +31,7 @@ module.exports = function(config) {
       'bower_components/angular-pretty-checkable/dist/angular-pretty-checkable.min.js',
       'bower_components/chosen/chosen.jquery.min.js',
       'bower_components/angular-chosen-localytics/chosen.js',
+      'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

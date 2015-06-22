@@ -10,7 +10,6 @@ angular.module('learningDataApp')
     $scope.loginsOptions = {
       scaleLabel: function (valuePayload) {
         return valuePayload.value + '%';
-
       }
     };
     $scope.loginsLabels = [
