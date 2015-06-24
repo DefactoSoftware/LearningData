@@ -9,8 +9,11 @@ angular.module('learningDataApp')
     $scope.chartSeries = ['active users'];
     $scope.chartType = 'lineChart';
 
-    // rewrite??
-    $rootScope.activeUserStartup = function () {
+    $scope.$on('activeUserStartup', function(event, args) {
+      startup();
+    })
+
+    function startup() {
       var selectedTenant = activeUserOptions.getSelectedTenant();
       var interval = activeUserOptions.getInterval().value;
       var toDate = $filter('date')(activeUserOptions.getToDate(), 'dd/MM/yyyy');
@@ -23,16 +26,16 @@ angular.module('learningDataApp')
         fromDate,
         toDate
       ).then(function(result) {
-        $scope.setupData(result);
+        setupData(result);
       }, function() {
         $scope.dataLoaded = false;
         $scope.loading = false;
         $scope.loadingError = true;
-        $scope.chartType = 'empty';
+        $scope.chartType = 'emptyChart';
       });
     };
 
-    $scope.setupData = function (result) {
+    function setupData (result) {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
@@ -41,5 +44,5 @@ angular.module('learningDataApp')
       $scope.chartData = [result.stats.active_users];
     };
 
-    $rootScope.activeUserStartup();
+    startup();
   });

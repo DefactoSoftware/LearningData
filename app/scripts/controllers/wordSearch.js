@@ -25,7 +25,7 @@ angular.module('learningDataApp')
       }
     };
 
-    $scope.setupData = function (result) {
+    function setupData (result) {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;

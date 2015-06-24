@@ -6,3 +6,32 @@
   font-size: 11px;
   color: $red;
 }
+
+#header,
+#spacesheader, {
+  font-size: 27px;
+  font-weight: bold;
+
+  color: $dark-grey;
+}
+
+#header {
+  margin: 5px 0px 0px 10px;
+}
+
+#spacesheader {
+  margin: 0.5em 0em 0.5em 3.5em
+}
+
+.space-info {
+  float: right;
+  margin-right: 2em;
+  font-weight: bold;
+}
+
+.space-info-title {
+  float: left;
+  margin-left: 2em;
+  font-weight: bold;
+  color: $dark-grey;
+}

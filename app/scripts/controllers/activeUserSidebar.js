@@ -1,6 +1,6 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('activeUserSidebarController', function ($scope, activeUserOptions, dataAPIservice) {
+  .controller('activeUserSidebarController', function ($scope, $rootScope, activeUserOptions, dataAPIservice) {
 
     $scope.interval = activeUserOptions.getInterval();
     $scope.fromDate = activeUserOptions.getFromDate();
@@ -27,7 +27,6 @@ angular.module('learningDataApp')
       $scope.tenants = result.tenants;
       $scope.tenants.splice(0,0, 'all tenants');
     }, function() {
-      //add stuff?? do something rewrite??
       console.log('could not load tenants');
     });
 
@@ -36,12 +35,12 @@ angular.module('learningDataApp')
       activeUserOptions.setFromDate($scope.fromDate);
       activeUserOptions.setToDate($scope.toDate);
       activeUserOptions.setSelectedTenant($scope.selectedTenant);
-      if ($scope.checkOptions() === true){
-        $scope.activeUserStartup();
+      if (checkOptions() === true){
+        $rootScope.$broadcast('activeUserStartup');
       }
     };
 
-    $scope.checkOptions = function () {
+    function checkOptions () {
       $scope.correctDates = ($scope.toDate <= $scope.fromDate) ? false : true;
       return ($scope.correctDates);
     };

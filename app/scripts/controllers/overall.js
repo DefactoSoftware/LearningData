@@ -9,9 +9,14 @@ angular.module('learningDataApp')
     $scope.chartLegend = true;
 
     var storedSeries = [];
+    var toDate = $filter('date')(overallOptions.getToDate(), 'dd/MM/yyyy');
+    var fromDate = $filter('date')(overallOptions.getFromDate(), 'dd/MM/yyyy');
 
-    //broadcast event?? broadcast from service, listen in controller rewrite??
-    $rootScope.overallStartup = function () {
+    $scope.$on('overallStartup', function(event, args) {
+      startup();
+    })
+
+    function startup() {
       var dataType = overallOptions.getDataType();
       var selectedTenant = overallOptions.getSelectedTenant();
       var interval = overallOptions.getInterval().value;
@@ -24,9 +29,7 @@ angular.module('learningDataApp')
           $scope.dataTypes.push(dataType[i].field);
           storedSeries.push(dataType[i].name);
         }
-      }
-      var toDate = $filter('date')(overallOptions.getToDate(), 'dd/MM/yyyy');
-      var fromDate = $filter('date')(overallOptions.getFromDate(), 'dd/MM/yyyy');
+    }
 
       dataAPIservice.getTenantStats(
         $scope.dataTypes,
@@ -35,7 +38,7 @@ angular.module('learningDataApp')
         fromDate,
         toDate
       ).then(function(result) {
-        $scope.setupData(result);
+        setupData(result);
       }, function() {
         $scope.dataLoaded = false;
         $scope.loading = false;
@@ -44,7 +47,7 @@ angular.module('learningDataApp')
       });
     };
 
-    $scope.setupData = function (result) {
+    function setupData (result) {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
@@ -62,5 +65,5 @@ angular.module('learningDataApp')
         return viewLocation === $location.path();
     };
 
-    $rootScope.overallStartup();
+    startup();
   });

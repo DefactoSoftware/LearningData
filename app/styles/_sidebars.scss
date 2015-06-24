@@ -1,6 +1,4 @@
-.data-sidebar {
-  padding-left: 3px;
-
+.sidebar {
   .chart-data,
   .chart-type,
   .chart-date-up,
@@ -18,25 +16,25 @@
     background-color: $grey;
   }
 
-  .chart-data,
-  .chart-type {
-    .right-td {
-      padding-left: 0px;
-      padding-right: 0px;
-    }
+  // .chart-data,
+  // .chart-type {
+  //   .right-td {
+  //     padding-left: 0px;
+  //     padding-right: 0px;
+  //   }
 
-    table {
-      text-align: left;
-    }
+  //   table {
+  //     text-align: left;
+  //   }
 
-    td {
-      padding-top: 4px;
+  //   td {
+  //     padding-top: 4px;
 
-      label {
-        font-weight: normal;
-      }
-    }
-  }
+  //     label {
+  //       font-weight: normal;
+  //     }
+  //   }
+  // }
 
   .chart-data,
   .active-users {
@@ -45,31 +43,31 @@
     border-top-right-radius: 6px;
   }
 
-  .chart-data {
-    td {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-  }
+  // .chart-data {
+  //   td {
+  //     padding-right: 15px;
+  //     padding-left: 15px;
+  //   }
+  // }
 
-  .chart-type {
-    td {
-      padding-right: 15px;
-      padding-left: 20px;
-    }
-  }
-  .chart-interval {
-    .left-td {
-      padding-left: 15px;
-    }
+  // .chart-type {
+  //   td {
+  //     padding-right: 15px;
+  //     padding-left: 20px;
+  //   }
+  // }
+  // .chart-interval {
+  //   .left-td {
+  //     padding-left: 15px;
+  //   }
 
-    td {
-      width: 90px;
-      label {
-        font-weight: normal;
-      }
-    }
-  }
+  //   td {
+  //     width: 90px;
+  //     label {
+  //       font-weight: normal;
+  //     }
+  //   }
+  // }
   .chart-date-up {
     border-bottom: 0px;
     padding-bottom: 0px;
@@ -86,4 +84,58 @@
       width: 100%;
     }
   }
+
+  .chart-spaces {
+    width: 26em;
+    border-radius: 6px;
+    border: 1px solid $border-grey;
+    background-color: $grey;
+    padding-bottom: 1em;
+  }
+}
+
+.data-left,
+.data-right,
+.chart-left,
+.chart-right,
+.interval-left,
+.interval-middle,
+.interval-right {
+  label {
+    font-weight: normal;
+  }
+}
+
+.data-left {
+  float: left;
+  margin-left: 1em;
+}
+
+.data-right {
+  float: right;
+  width: 9em;
+}
+
+.chart-left {
+  float: left;
+  margin-left: 1em;
+}
+
+.chart-right {
+  float: right;
+  margin-right: 1em;
+}
+
+.interval-left {
+  float: left;
+  margin-left: 1em;
+}
+
+.interval-middle {
+
+}
+
+.interval-right {
+  float: right;
+  margin-right: 1em;
 }

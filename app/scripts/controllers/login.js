@@ -8,19 +8,19 @@ angular.module('learningDataApp')
       $scope.badLogin = false;
       var authenticationHeader = {'Authorization': 'Basic ' + btoa($scope.username + ':' + $scope.password)};
       dataAPIservice.loginAPI(authenticationHeader).then(function() {
-        $scope.loginSuccesfull(authenticationHeader);
+        loginSuccesfull(authenticationHeader);
       }, function() {
-        $scope.loginUnsuccesfull();
+        loginUnsuccesfull();
       });
     };
 
-    $scope.loginSuccesfull = function (authenticationHeader) {
+    function loginSuccesfull (authenticationHeader) {
       $location.path('/');
       $cookieStore.put('authenticationHeader', authenticationHeader);
       $cookieStore.put('loggedIn', true);
     };
 
-    $scope.loginUnsuccesfull = function () {
+    function loginUnsuccesfull () {
       $scope.loading = false;
       $scope.badLogin = true;
     };

@@ -2,6 +2,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @import "variables.scss";
 @import "sidebars.scss";
 @import "tables.scss";
@@ -9,9 +11,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "text.scss";
 @import "login.scss";
 
+
 body {
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
 }
 
 .app-container {
@@ -43,7 +46,7 @@ body {
   border: 1px solid $border-grey;
   border-radius: 4px;
   min-height: 515px;
-  height: calc(100vh - 142px);
+  height: calc(100vh - 145px);
 }
 
 .data {

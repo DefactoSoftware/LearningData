@@ -8,6 +8,7 @@ angular.module('learningDataApp')
     var loginStatsEndpoint = Restangular.all('login_stats');
     var wordSearchEndpoint = Restangular.all('word_search');
     var loginEndpoint = Restangular.all('login');
+    var spacesEndpoint = Restangular.all('spaces_stats');
 
     return {
       loginAPI: function(authenticationHeader) {
@@ -27,6 +28,9 @@ angular.module('learningDataApp')
       },
       getSearchWords: function(text){
         return  wordSearchEndpoint.customGET('', {'text' : text}, $cookieStore.get('authenticationHeader'));
+      },
+      getSpacesStats: function(){
+        return  spacesEndpoint.customGET('', {}, $cookieStore.get('authenticationHeader'));
       }
     };
   });

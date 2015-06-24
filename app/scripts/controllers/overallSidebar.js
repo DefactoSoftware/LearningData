@@ -1,6 +1,6 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('dataSidebarController', function ($scope, overallOptions, dataAPIservice) {
+  .controller('overallSidebarController', function ($scope, overallOptions, dataAPIservice, $rootScope) {
 
     $scope.dataType = overallOptions.getDataType();
     $scope.interval = overallOptions.getInterval();
@@ -13,8 +13,6 @@ angular.module('learningDataApp')
     $scope.minDate =  overallOptions.getMinDate();
     $scope.maxDate = new Date();
     $scope.opened = {};
-    //rewrite???
-    $scope.dataRows = [ [$scope.dataType[0], $scope.dataType[1]], [$scope.dataType[2], $scope.dataType[3]] ];
     $scope.oneAtATime = true;
 
     $scope.addItem = function() {
@@ -42,8 +40,7 @@ angular.module('learningDataApp')
       overallOptions.setToDate($scope.toDate);
       overallOptions.setSelectedTenant($scope.selectedTenant);
       if ($scope.checkOptions() === true){
-        //rewrite?? broadcast
-        $scope.overallStartup();
+        $rootScope.$broadcast('overallStartup');
       }
     };
 

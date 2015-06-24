@@ -11,10 +11,10 @@ angular.module('learningDataApp')
       template: '<div ng-include="getContentUrl()"></div>'
     };
 
-  }).directive('datasidebar', function () {
+  }).directive('overallsidebar', function () {
     return {
       restrict: 'E',
-      templateUrl: 'views/partials/bars/dataSidebar.html'
+      templateUrl: 'views/partials/bars/overallSidebar.html'
      };
   }).directive('activeusersidebar', function () {
     return {
@@ -25,6 +25,11 @@ angular.module('learningDataApp')
     return {
       restrict: 'E',
       templateUrl: 'views/partials/bars/userSidebar.html'
+     };
+  }).directive('spacessidebar', function () {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/partials/bars/spacesSidebar.html'
      };
   }).directive('navbar', function () {
     return {

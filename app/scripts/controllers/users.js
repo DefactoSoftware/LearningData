@@ -25,22 +25,22 @@ angular.module('learningDataApp')
       return dataAPIservice.getLoginStats().then(function (loginResult) {
         $scope.tenantResult = tenantResult;
         $scope.loginResult = loginResult;
-        $scope.setupData();
+        setupData();
       });
     }, function() {
       $scope.loading = false;
       $scope.loadingError = true;
     });
 
-    $scope.setupData = function () {
+    function setupData () {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
-      $scope.setupTenantData($scope.tenantResult);
-      $scope.setupLoginData($scope.loginResult);
+      setupTenantData($scope.tenantResult);
+      setupLoginData($scope.loginResult);
     };
 
-    $scope.setupTenantData = function (result) {
+    function setupTenantData (result) {
       $scope.chartLabels = [];
       $scope.chartData = [];
       $scope.totalTenants = result.tenant_stats.length;
@@ -65,7 +65,7 @@ angular.module('learningDataApp')
       }
     };
 
-    $scope.setupLoginData = function (result) {
+    function setupLoginData (result) {
       var loginsTotal = result.logins;
       var loginsPercentual = [];
       var loginsSum = _.sum(loginsTotal);

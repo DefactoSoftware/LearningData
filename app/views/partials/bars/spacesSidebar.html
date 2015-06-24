@@ -1,0 +1,10 @@
+<div ng-controller="spacesSidebarController">
+  <div class="chart-spaces" ng-show="spaceSelected">
+    <p id="spacesheader"> Selected space </p>
+    <div class="space-info-title"> Space:</div> <div class="space-info" ng-style="{'color': color}">{{space}}</div><br/>
+    <div class="space-info-title"> Tenant:</div> <div class="space-info" ng-style="{'color': color}"> {{tenant_name}}</div><br/>
+    <div class="space-info-title"> Completions:</div> <div class="space-info" ng-style="{'color': color}"> {{completions}}</div><br/>
+    <div class="space-info-title"> Followers:</div> <div class="space-info" ng-style="{'color': color}"> {{subscriptions}}</div><br/>
+    <div class="space-info-title"> Rating:</div> <div class="space-info" ng-style="{'color': color}"> {{rating}}</div><br/>
+  </div>
+</div>

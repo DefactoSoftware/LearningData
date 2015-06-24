@@ -8,16 +8,15 @@ angular.module('learningDataApp')
       criteria : 'none',
       descending : false
     };
-    var promise = dataAPIservice.getDailyTenantStats();
-      promise.then(function(result) {
-        $scope.setupData(result);
-      }, function() {
-        $scope.dataLoaded = false;
-        $scope.loading = false;
-        $scope.loadingError = true;
-      });
+    dataAPIservice.getDailyTenantStats().then(function(result) {
+      setupData(result);
+    }, function() {
+      $scope.dataLoaded = false;
+      $scope.loading = false;
+      $scope.loadingError = true;
+    });
 
-    $scope.setupData = function (result) {
+    function setupData (result) {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
