@@ -29,11 +29,19 @@ body {
   width: 263px !important;
 }
 
-.col-fixed-sidebar{
+.col-fixed-sidebar-general,
+.col-fixed-sidebar-spaces {
   margin-left: 1em;
-  width: 22em;
   position: absolute;
   z-index: 2;
+}
+
+.col-fixed-sidebar-general {
+  width: 22em;
+}
+
+.col-fixed-sidebar-spaces {
+   min-width: 22em;
 }
 
 .col-offset-data{
@@ -54,7 +62,7 @@ body {
 }
 
 .number-select {
-   border: 3px solid transparent;
+  border: 3px solid transparent;
   font-size: 120px;
   margin-top: 220px;
   margin-left: -50px;

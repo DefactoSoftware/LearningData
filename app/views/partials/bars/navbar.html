@@ -3,17 +3,18 @@
     <div class="col-md-3">
       <p id="header">LearningData</p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
       <ul class="nav navbar-nav">
         <li ng-class="{ active: isActive('/')}"><a href="/">Overall</a></li>
         <li ng-class="{ active: isActive('/daily')}"><a href="/daily">Daily</a></li>
         <li ng-class="{ active: isActive('/users')}"><a href="/users">Users</a></li>
         <li ng-class="{ active: isActive('/spaces')}"><a href="/spaces">Spaces</a></li>
+        <li ng-class="{ active: isActive('/reputation')}"><a href="/reputation">Reputation</a></li>
         <li ng-class="{ active: isActive('/activeUsers')}"><a href="/activeUsers">Active users</a></li>
         <li ng-class="{ active: isActive('/wordSearch')}"><a href="/wordSearch">Word Search</a></li>
       </ul>
     </div>
-    <div class="col-md-2 col-md-offset-1" ng-controller="loginController">
+    <div class="col-md-2" ng-controller="loginController">
       <ul class="nav navbar-nav logout-container">
         <li><a class="logout-btn" ng-click="logout()">Log out</a></li>
       </ul>

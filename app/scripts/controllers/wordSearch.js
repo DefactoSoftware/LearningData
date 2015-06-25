@@ -25,7 +25,7 @@ angular.module('learningDataApp')
       }
     };
 
-    function setupData (result) {
+    $scope.setupData = function (result) {
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
@@ -48,7 +48,7 @@ angular.module('learningDataApp')
         $scope.sortSettings.descending = !$scope.sortSettings.descending;
       } else {
         $scope.sortSettings.criteria = criteria;
-        $scope.sortSettings.descending = (criteria === 'tenant_name');
+        $scope.sortSettings.descending = !(criteria === 'tenant_name');
       }
     };
   });

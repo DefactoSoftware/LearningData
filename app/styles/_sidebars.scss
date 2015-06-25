@@ -16,26 +16,6 @@
     background-color: $grey;
   }
 
-  // .chart-data,
-  // .chart-type {
-  //   .right-td {
-  //     padding-left: 0px;
-  //     padding-right: 0px;
-  //   }
-
-  //   table {
-  //     text-align: left;
-  //   }
-
-  //   td {
-  //     padding-top: 4px;
-
-  //     label {
-  //       font-weight: normal;
-  //     }
-  //   }
-  // }
-
   .chart-data,
   .active-users {
     border-top: 1px solid $border-grey;
@@ -43,31 +23,6 @@
     border-top-right-radius: 6px;
   }
 
-  // .chart-data {
-  //   td {
-  //     padding-right: 15px;
-  //     padding-left: 15px;
-  //   }
-  // }
-
-  // .chart-type {
-  //   td {
-  //     padding-right: 15px;
-  //     padding-left: 20px;
-  //   }
-  // }
-  // .chart-interval {
-  //   .left-td {
-  //     padding-left: 15px;
-  //   }
-
-  //   td {
-  //     width: 90px;
-  //     label {
-  //       font-weight: normal;
-  //     }
-  //   }
-  // }
   .chart-date-up {
     border-bottom: 0px;
     padding-bottom: 0px;
@@ -86,7 +41,6 @@
   }
 
   .chart-spaces {
-    width: 26em;
     border-radius: 6px;
     border: 1px solid $border-grey;
     background-color: $grey;
@@ -127,12 +81,7 @@
 }
 
 .interval-left {
-  float: left;
   margin-left: 1em;
-}
-
-.interval-middle {
-
 }
 
 .interval-right {

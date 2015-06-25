@@ -15,6 +15,7 @@ angular.module('learningDataApp', [
       when('/login', {templateUrl: 'views/pages/login.html', controller: 'loginController' }).
       when('/users', {templateUrl: 'views/pages/users.html', controller: 'usersController' }).
       when('/spaces', {templateUrl: 'views/pages/spaces.html', controller: 'spacesController' }).
+      when('/reputation', {templateUrl: 'views/pages/reputation.html', controller: 'reputationController' }).
       when('/daily', {templateUrl: 'views/pages/daily.html', controller: 'dailyController' }).
       when('/wordSearch', {templateUrl: 'views/pages/wordSearch.html', controller: 'wordSearchController' }).
       when('/activeUsers', {templateUrl: 'views/pages/activeUsers.html', controller: 'activeUsersController' }).

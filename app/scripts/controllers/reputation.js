@@ -1,6 +1,7 @@
 'use strict';
 angular.module('learningDataApp')
-  .controller('dailyController', function ($scope, dataAPIservice, $filter) {
+  .controller('reputationController', function ($scope, dataAPIservice, $filter) {
+
     $scope.loading = true;
     $scope.dataLoaded = false;
     $scope.loadingError = false;
@@ -8,7 +9,7 @@ angular.module('learningDataApp')
       criteria : 'none',
       descending : false
     };
-    dataAPIservice.getDailyTenantStats().then(function(result) {
+    dataAPIservice.getReputationStats().then(function(result) {
       setupData(result);
     }, function() {
       $scope.dataLoaded = false;
@@ -22,29 +23,13 @@ angular.module('learningDataApp')
       $scope.loadingError = false;
       $scope.tenantStats = result.tenant_stats;
       $scope.setSortSettings('tenant_name');
-
-      $scope.totals = {
-        users: 0,
-        spaces: 0,
-        chapters: 0,
-        completions: 0,
-        active_users: 0,
-        activity: 0,
-        tenant_name: 'Totals'
-      };
-
-      for (var i = 0 ; i < $scope.tenantStats.length ; i++) {
-        $scope.totals.users += parseInt($scope.tenantStats[i].users);
-        $scope.totals.spaces += parseInt($scope.tenantStats[i].spaces);
-        $scope.totals.chapters += parseInt($scope.tenantStats[i].chapters);
-        $scope.totals.completions += parseInt($scope.tenantStats[i].completions);
-        $scope.totals.active_users += parseInt($scope.tenantStats[i].active_users);
-        $scope.totals.activity += parseInt($scope.tenantStats[i].activity);
-      }
+      $scope.totals = result.totals
+      $scope.totals['tenant_name'] = 'Totals'
+      $scope.reputationStats = result.data
     };
 
     $scope.$watch('sortSettings', function(newVal){
-      $scope.tenantStats =  $filter('orderBy')( $scope.tenantStats, function(item) {
+      $scope.reputationStats =  $filter('orderBy')( $scope.reputationStats, function(item) {
               if (newVal.criteria === 'tenant_name') {
                 return item[newVal.criteria];
               } else {
@@ -61,3 +46,4 @@ angular.module('learningDataApp')
       }
     };
   });
+

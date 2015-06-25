@@ -48,7 +48,8 @@ angular.module('learningDataApp')
     $scope.open = function($event, type) {
       $event.preventDefault();
       $event.stopPropagation();
-
+      $scope.opened.top = false;
+      $scope.opened.bottom = false;
       $scope.opened[type] = true;
     };
 

@@ -36,11 +36,11 @@ angular.module('learningDataApp')
       $scope.loading = false;
       $scope.dataLoaded = true;
       $scope.loadingError = false;
-      setupTenantData($scope.tenantResult);
+      $scope.setupTenantData($scope.tenantResult);
       setupLoginData($scope.loginResult);
     };
 
-    function setupTenantData (result) {
+    $scope.setupTenantData = function (result) {
       $scope.chartLabels = [];
       $scope.chartData = [];
       $scope.totalTenants = result.tenant_stats.length;

@@ -6,13 +6,13 @@
         <div class="border">
           <table class="tenant-info">
             <tr>
-              <th class="clickable upper-left-corner" ng-click="setSortSettings('tenant_name')">Tenant</th>
+              <th class="clickable" ng-click="setSortSettings('tenant_name')">Tenant</th>
               <th class="clickable" ng-click="setSortSettings('users')">Users</th>
               <th class="clickable" ng-click="setSortSettings('spaces')">Spaces</th>
               <th class="clickable" ng-click="setSortSettings('chapters')">Chapters</th>
               <th class="clickable" ng-click="setSortSettings('completions')">Completions</th>
               <th class="clickable" ng-click="setSortSettings('active_users')">Active users</th>
-              <th class="clickable upper-right-corner" ng-click="setSortSettings('activity')">Active users past 30 days</th>
+              <th class="clickable" ng-click="setSortSettings('activity')">Active users past 30 days</th>
             </tr>
             <tr class="totals">
               <td>{{totals.tenant_name}}</td>
